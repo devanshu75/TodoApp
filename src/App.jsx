@@ -28,6 +28,7 @@ function App() {
       id: nanoid(),
       taskName,
       completed: false,
+      createdAt: new Date(),
     };
     setTasks([...tasks, newTask]);
   }
@@ -100,6 +101,7 @@ function App() {
               id={task.id}
               taskName={task.taskName}
               completed={task.completed}
+              createdAt={task.createdAt}
               onToggle={toggleTask}
               onDelete={deleteTask}
               onEdit={editTask}

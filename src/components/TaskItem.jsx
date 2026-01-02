@@ -2,12 +2,20 @@ import { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 
-const TaskItem = ({ id, taskName, completed, onToggle, onDelete, onEdit }) => {
+const TaskItem = ({
+  id,
+  taskName,
+  completed,
+  onToggle,
+  onDelete,
+  onEdit,
+  createdAt,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState("");
 
   function startEditing() {
-    setEditedText(taskName); 
+    setEditedText(taskName);
     setIsEditing(true);
   }
 
@@ -45,9 +53,20 @@ const TaskItem = ({ id, taskName, completed, onToggle, onDelete, onEdit }) => {
                   autoFocus
                 />
               ) : (
-                <span className={`task-text ${completed ? "completed" : ""}`}>
-                  {taskName}
-                </span>
+                <>
+                  <span className={`task-text ${completed ? "completed" : ""}`}>
+                    {taskName}
+                  </span>
+
+                  <span className="task-date">
+                    Created{" "}
+                    {new Date(createdAt).toLocaleDateString("en-IN", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                </>
               )}
             </div>
           </div>

@@ -175,10 +175,22 @@ body {
 }
 
 .todo-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.todo-item:hover {
+  background: #f9fafb;
+}
+
+.task-text {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .left {
@@ -214,11 +226,15 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Text & Edit */
 .task-content {
-  flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.task-date {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
 }
 
 .task-text {
